@@ -1,2 +1,4 @@
 - @users.each do |user|
   %p User: #{link_to user.name, user}
+- if current_user.admin?
+  %p= link_to "AdWords API Credentials", credentials_path
