@@ -1,0 +1,11 @@
+%h1 Listing words
+%table
+  %tr
+    %th Phrase
+    %th Searches
+  - @words.each do |word|
+    %tr
+      %td= word.phrase
+      %td= word.searches
+      %td= link_to 'Destroy', user_word_path(current_user, word), :confirm => 'Are you sure?', :method => :delete
+%br= link_to 'New Word', new_user_word_path(current_user)
