@@ -10,3 +10,5 @@ Mongoid.master.collections.reject { |c| c.name == 'system.indexes'}.each(&:drop)
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :name => 'First User', :email => 'user@test.com', :admin => true, :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
+credential = Credential.create :email => 'x',  :password => 'x', :developer_token => 'x'
+puts 'Added credential: ' << credential.email
