@@ -19,7 +19,7 @@ class Credential
 
   def authenticate(email, password)
     # requires google-client_login gem
-    login = ClientLogin.new(email, password, :accountType => 'GOOGLE', :service => 'adwords')
+    login = Google::ClientLogin.new(email, password, :accountType => 'GOOGLE', :service => 'adwords')
     login.token
   end
 
