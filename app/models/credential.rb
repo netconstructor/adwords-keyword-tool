@@ -8,7 +8,7 @@ class Credential
 
   def auth_token
     return @auth_token if @auth_token
-    auth_token = authenticate(self.email, self.password)
+    @auth_token = authenticate(self.email, self.password)
   end
 
   def user_agent
@@ -18,9 +18,12 @@ class Credential
   private
 
   def authenticate(email, password)
-    # requires google-client_login gem
-    login = Google::ClientLogin.new(email, password, :accountType => 'GOOGLE', :service => 'adwords')
-    login.token
+    # requires rails3-google-client-login gem
+    login_service = GoogleClientLogin::GoogleAuth.new(:accountType => 'GOOGLE', 
+                                              :service => 'adwords', 
+                                              :source => self.user_agent)
+    login_service.authenticate(email, password)
+    auth_token = login_service.auth
   end
 
 end
