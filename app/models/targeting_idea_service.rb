@@ -17,7 +17,7 @@ class TargetingIdeaService
     raise NoCredentialsError unless @credential.email.include?('@')
     raise NoCredentialsError unless @credential.password?
     raise NoCredentialsError unless @credential.developer_token?
-    raise NoCredentialsError unless @credential.auth_token.blank?
+    raise NoCredentialsError if @credential.auth_token.blank?
     yield self if block_given?
   end
   

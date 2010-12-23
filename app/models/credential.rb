@@ -18,7 +18,7 @@ class Credential
   private
 
   def authenticate(email, password)
-    # requires rails3-google-client-login gem
+    # requires lib/google_client_login.rb module
     login_service = GoogleClientLogin::GoogleAuth.new(:accountType => 'GOOGLE', 
                                               :service => 'adwords', 
                                               :source => self.user_agent)
