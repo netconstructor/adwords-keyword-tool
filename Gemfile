@@ -25,7 +25,7 @@ gem 'inherited_resources', '1.1.2'
 gem "savon", '0.7.9'
 
 # Bundle gem needed for Google Client Login
-gem "rails3-google-client-login"
+gem "google_client_login"
 
 # uncomment the next line if you wish to deploy to Heroku
 # gem 'heroku', '1.14.6', :group => :development

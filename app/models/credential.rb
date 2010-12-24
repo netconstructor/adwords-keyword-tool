@@ -18,7 +18,7 @@ class Credential
   private
 
   def authenticate(email, password)
-    # requires lib/google_client_login.rb module
+    # requires google_client_login gem (note: NOT the similar-but-older google-client_login gem)
     login_service = GoogleClientLogin::GoogleAuth.new(:accountType => 'GOOGLE', 
                                               :service => 'adwords', 
                                               :source => self.user_agent)
